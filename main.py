@@ -33,9 +33,6 @@ class RecorderGUI:
 
         self.label = tk.Label(self.root, text="Hello World!", font=('Arial', 18))
         self.label.pack(padx=20, pady=20)
-
-        self.textbox = tk.Text(self.root)
-        self.textbox.pack(padx=20, pady=20)
         
         self.button = tk.Button(self.root, text="Click Me!", command=self.show_message)
         self.button.pack(padx=10, pady=10)
