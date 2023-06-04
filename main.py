@@ -1,48 +1,65 @@
-#
-#
-#
-import tkinter as tk
-from tkinter import ttk
+import tkinter
+import customtkinter
+import rokokoStartRecording as start
 
+def combobox_callback(choice):
+    print("combobox dropdown clicked!", choice)
 
+def get_ip1_input():
+    start.IP_ADDRESS = suit1_Ip.get()
+    print(start.IP_ADDRESS)
 
-class RecorderGUI:
+def get_api_input():
+    start.API_KEY = api_Key.get()
+    print(start.API_KEY)
+
+def get_port_input():
+    start.PORT = port.get()
+    print(start.PORT)
+
+def get_fps_input():
+    start.FRAME_RATE = combobox.get()
+    print(start.FRAME_RATE)
     
-    def __init__(self):
-        
-        
-        self.root = tk.Tk()
-        
-        self.menubar = tk.Menu(self.root)
-        
-        self.filemenu = tk.Menu(self.root, tearoff=0)
-        self.filemenu.add_command(label="Close", command=exit)
-        
-        self.actionmenu = tk.Menu(self.menubar, tearoff=0)
-        self.actionmenu.add_command(label="Show Message", command=self.show_message)
-        
-        
-        self.menubar.add_cascade(menu=self.filemenu, label="File")
-        self.menubar.add_cascade(menu=self.actionmenu, label="Action")
-        
-        self.root.config(menu=self.menubar)
-                        
+def get_all_inputs():
+    get_api_input()
+    get_ip1_input()
+    get_port_input()
+    get_fps_input()
 
-        self.root.geometry("500x500")
-        self.root.title("Rokoko Remote Recorder")
+customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
+customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
 
-        self.label = tk.Label(self.root, text="Hello World!", font=('Arial', 18))
-        self.label.pack(padx=20, pady=20)
 
-        self.textbox = tk.Text(self.root)
-        self.textbox.pack(padx=20, pady=20)
-        
-        self.button = tk.Button(self.root, text="Click Me!", command=self.show_message)
-        self.button.pack(padx=10, pady=10)
+app = customtkinter.CTk()  # create CTk window like you do with the Tk window
+app.geometry("600x600")
+app.title("Rokoko Remote Recorder")
+app.grid_rowconfigure(10, weight=1)
+app.grid_columnconfigure(10, weight=1)
 
-        self.root.mainloop()
+def button_startRecord():
+    start.start_Recording()
+# Use CTkButton instead of tkinter Button
+buttonStart = customtkinter.CTkButton(master=app, text="Start Recording", command=button_startRecord)
+buttonStart.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
-    def show_message(self):
-        print(self.textbox.get('1.0'))
-    
-RecorderGUI()
+combobox = customtkinter.CTkComboBox(app, values=['30', '60', '100'], command=combobox_callback)
+combobox.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
+
+button = customtkinter.CTkButton(master=app, text="Get input value", command=get_all_inputs)
+button.place(relx=0.5, rely=0.2, anchor=tkinter.CENTER)
+
+# Create entry widget for suit 1 IP Address
+suit1_Ip = customtkinter.CTkEntry(app, placeholder_text="127.0.0.1")
+suit1_Ip.place(relx=0.5, rely=0.6, anchor=tkinter.CENTER)
+
+suit2_Ip = customtkinter.CTkEntry(app, placeholder_text="Suit 2 IP Address")
+suit2_Ip.place(relx=0.2, rely=0.6, anchor=tkinter.CENTER)
+
+api_Key = customtkinter.CTkEntry(app, placeholder_text="1234")
+api_Key.place(relx=0.5, rely=0.8, anchor=tkinter.CENTER)
+
+port = customtkinter.CTkEntry(app, placeholder_text="80")
+port.place(relx=0.5, rely=0.9, anchor=tkinter.CENTER)
+
+app.mainloop()
