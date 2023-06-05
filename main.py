@@ -1,6 +1,7 @@
 import tkinter
 import customtkinter
 import rokokoStartRecording as start
+import BrekelRecording as brekel
 
 IP_ADDRESS_1 = ""
 IP_ADDRESS_2 = ""
@@ -65,7 +66,7 @@ def calibrate_All():
     calibrate_2()
 
 def button_startRecordBrekel():
-    start.start_Recording()
+    brekel.brekel_start()
 def button_stopRecordBrekel():
     start.stop_Recording()
 
@@ -113,4 +114,5 @@ port.place(relx=0.5, rely=0.9, anchor=tkinter.CENTER)
 #IP_ADDRESS_1 = suit1_Ip.get()
 #IP_ADDRESS_2 = suit2_Ip.get()
 
+app.bind('<Return>', lambda event:button_startRecordAll())
 app.mainloop()

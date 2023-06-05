@@ -1,7 +1,7 @@
 from pip._vendor import requests
 #import main
 
-IP_ADDRESS = '192.168.50.55' # Replace with actual ip address
+IP_ADDRESS = '192.168.50.56' # Replace with actual ip address
 PORT = '14053' # Replace with actual port
 API_KEY = '1234' # Replace with actual api key
 CLIP_NAME = 'MyNewClip' # Clip Name, Optional
@@ -59,6 +59,19 @@ def calibrate_Suit(IP_ADDRESS):
             'pose' : 'straight-arms-down' # tpose, straight-arms-down, straight-arms-forward
             }
         )
+    except Exception as e:
+        print (e)
+
+    if responce is not None:
+        print(responce.json())
+
+def reset_Actor(IP_ADDRESS):
+    try:
+        responce = requests.post(f"http://{IP_ADDRESS}:{PORT}/v2/{API_KEY}/resetactor",
+        json = {
+            'deviceId': SMARTSUIT_NAME
+        }
+    )
     except Exception as e:
         print (e)
 
