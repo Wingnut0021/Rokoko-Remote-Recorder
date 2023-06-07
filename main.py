@@ -1,7 +1,7 @@
 import tkinter
 import customtkinter
 import rokokoStartRecording as start
-import BrekelRecording as brekel
+import RecordBrekel as brekel
 
 
 IP_ADDRESS_1 = ""
@@ -74,6 +74,21 @@ def button_stopRecordAll():
     IP_ADDRESS_6 = suit6_Ip.get()
     start.stop_Recording(IP_ADDRESS_6)
 
+def button_startRecordBrekel():
+    brekel.click_Brekel()
+def button_stopRecordBrekel():
+    brekel.click_Brekel()
+    
+def button_startRecordAllandBrekel():
+    IP_ADDRESS_1 = suit1_Ip.get()
+    start.start_Recording(IP_ADDRESS_1)
+    brekel.click_Brekel()
+
+def button_stopRecordAllandBrekel():
+    IP_ADDRESS_1 = suit1_Ip.get()
+    start.stop_Recording(IP_ADDRESS_1)
+    brekel.click_Brekel()
+    
 def calibrate_1():
     IP_ADDRESS_1 = suit1_Ip.get()
     start.calibrate_Suit(IP_ADDRESS_1)
@@ -106,10 +121,7 @@ def calibrate_All():
     calibrate_5()
     calibrate_6()
 
-def button_startRecordBrekel():
-    brekel.brekel_start()
-def button_stopRecordBrekel():
-    start.stop_Recording()
+
 
 # Use CTkButton instead of tkinter Button
 buttonStartAll = customtkinter.CTkButton(master=app, text="Start Recording All", command=button_startRecordAll)
@@ -118,11 +130,17 @@ buttonStartAll.place(relx=0.7, rely=0.1, anchor=tkinter.CENTER)
 buttonStopAll = customtkinter.CTkButton(master=app, text="Stop Recording All", command=button_stopRecordAll)
 buttonStopAll.place(relx=0.9, rely=0.1, anchor=tkinter.CENTER)
 
-#buttonStartBrekel = customtkinter.CTkButton(master=app, text="Connect to Brekel", command=button_startRecordBrekel)
-#buttonStartBrekel.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
+buttonStartAllandBrekel = customtkinter.CTkButton(master=app, text="Start Recording All and Brekel", command=button_startRecordAllandBrekel)
+buttonStartAllandBrekel.place(relx=0.5, rely=0.8, anchor=tkinter.CENTER)
 
-#buttonStopBrekel = customtkinter.CTkButton(master=app, text="Disconnect Brekel", command=button_stopRecordBrekel)
-#buttonStopBrekel.place(relx=0.8, rely=0.7, anchor=tkinter.CENTER)
+buttonStopAllandBrekel = customtkinter.CTkButton(master=app, text="Stop Recording All and Brekel", command=button_stopRecordAllandBrekel)
+buttonStopAllandBrekel.place(relx=0.7, rely=0.8, anchor=tkinter.CENTER)
+
+buttonStartBrekel = customtkinter.CTkButton(master=app, text="Start Recording Brekel", command=button_startRecordBrekel)
+buttonStartBrekel.place(relx=0.5, rely=0.9, anchor=tkinter.CENTER)
+
+buttonStopBrekel = customtkinter.CTkButton(master=app, text="Stop Recording Brekel", command=button_stopRecordBrekel)
+buttonStopBrekel.place(relx=0.8, rely=0.9, anchor=tkinter.CENTER)
 
 combobox = customtkinter.CTkComboBox(app, values=['60', '100'], command=combobox_callback)
 combobox.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
