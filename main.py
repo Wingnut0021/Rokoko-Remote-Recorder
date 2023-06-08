@@ -2,6 +2,7 @@ import tkinter
 import customtkinter
 import rokokoStartRecording as start
 import RecordBrekel as brekel
+from datetime import datetime
 
 
 IP_ADDRESS_1 = ""
@@ -53,8 +54,13 @@ app.grid_rowconfigure(10, weight=1)
 app.grid_columnconfigure(10, weight=1)
 
 def button_startRecordAll():
+    now = datetime.now()
+    NOW = now.strftime("%d_%m_%Y_%H_%M_%S")
+    print(NOW)
+    
     IP_ADDRESS_1 = suit1_Ip.get()
     CLIP_NAME_1 = suit1_Name.get()
+    CLIP_NAME_1 = CLIP_NAME_1 + NOW
     start.start_Recording(IP_ADDRESS=IP_ADDRESS_1,CLIP_NAME=CLIP_NAME_1)
     IP_ADDRESS_2 = suit2_Ip.get()
     CLIP_NAME_2 = suit2_Name.get()
