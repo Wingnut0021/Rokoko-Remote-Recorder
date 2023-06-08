@@ -10,6 +10,12 @@ IP_ADDRESS_3 = ""
 IP_ADDRESS_4 = ""
 IP_ADDRESS_5 = ""
 IP_ADDRESS_6 = ""
+CLIP_NAME_1 = ""
+CLIP_NAME_2 = ""
+CLIP_NAME_3 = ""
+CLIP_NAME_4 = ""
+CLIP_NAME_5 = ""
+CLIP_NAME_6 = ""
 
 def combobox_callback(choice):
     print("combobox dropdown clicked!", choice)
@@ -48,31 +54,37 @@ app.grid_columnconfigure(10, weight=1)
 
 def button_startRecordAll():
     IP_ADDRESS_1 = suit1_Ip.get()
-    start.start_Recording(IP_ADDRESS_1)
+    CLIP_NAME_1 = suit1_Name.get()
+    start.start_Recording(IP_ADDRESS=IP_ADDRESS_1,CLIP_NAME=CLIP_NAME_1)
     IP_ADDRESS_2 = suit2_Ip.get()
-    start.start_Recording(IP_ADDRESS_2)
+    CLIP_NAME_2 = suit2_Name.get()
+    start.start_Recording(IP_ADDRESS=IP_ADDRESS_2,CLIP_NAME=CLIP_NAME_2)
     IP_ADDRESS_3 = suit3_Ip.get()
-    start.start_Recording(IP_ADDRESS_3)
+    CLIP_NAME_3 = suit3_Name.get()
+    start.start_Recording(IP_ADDRESS=IP_ADDRESS_3,CLIP_NAME=CLIP_NAME_3)
     IP_ADDRESS_4 = suit4_Ip.get()
-    start.start_Recording(IP_ADDRESS_4)
+    CLIP_NAME_4 = suit4_Name.get()
+    start.start_Recording(IP_ADDRESS=IP_ADDRESS_4,CLIP_NAME=CLIP_NAME_4)
     IP_ADDRESS_5 = suit5_Ip.get()
-    start.start_Recording(IP_ADDRESS_5)
+    CLIP_NAME_5 = suit5_Name.get()
+    start.start_Recording(IP_ADDRESS=IP_ADDRESS_5,CLIP_NAME=CLIP_NAME_5)
     IP_ADDRESS_6 = suit6_Ip.get()
-    start.start_Recording(IP_ADDRESS_6)
+    CLIP_NAME_6 = suit6_Name.get()
+    start.start_Recording(IP_ADDRESS=IP_ADDRESS_6,CLIP_NAME=CLIP_NAME_6)
 
 def button_stopRecordAll():
     IP_ADDRESS_1 = suit1_Ip.get()
-    start.stop_Recording(IP_ADDRESS_1)
+    start.stop_Recording(IP_ADDRESS=IP_ADDRESS_1,CLIP_NAME=CLIP_NAME_1)
     IP_ADDRESS_2 = suit2_Ip.get()
-    start.stop_Recording(IP_ADDRESS_2)
+    start.stop_Recording(IP_ADDRESS=IP_ADDRESS_2,CLIP_NAME=CLIP_NAME_2)
     IP_ADDRESS_3 = suit3_Ip.get()
-    start.stop_Recording(IP_ADDRESS_3)
+    start.stop_Recording(IP_ADDRESS=IP_ADDRESS_3,CLIP_NAME=CLIP_NAME_3)
     IP_ADDRESS_4 = suit4_Ip.get()
-    start.stop_Recording(IP_ADDRESS_4)
+    start.stop_Recording(IP_ADDRESS=IP_ADDRESS_4,CLIP_NAME=CLIP_NAME_4)
     IP_ADDRESS_5 = suit5_Ip.get()
-    start.stop_Recording(IP_ADDRESS_5)
+    start.stop_Recording(IP_ADDRESS=IP_ADDRESS_5,CLIP_NAME=CLIP_NAME_5)
     IP_ADDRESS_6 = suit6_Ip.get()
-    start.stop_Recording(IP_ADDRESS_6)
+    start.stop_Recording(IP_ADDRESS=IP_ADDRESS_6,CLIP_NAME=CLIP_NAME_6)
 
 def button_startRecordBrekel():
     brekel.click_Brekel()
@@ -80,38 +92,37 @@ def button_stopRecordBrekel():
     brekel.click_Brekel()
     
 def button_startRecordAllandBrekel():
-    IP_ADDRESS_1 = suit1_Ip.get()
-    start.start_Recording(IP_ADDRESS_1)
     brekel.click_Brekel()
+    button_startRecordAll()
+    
 
 def button_stopRecordAllandBrekel():
-    IP_ADDRESS_1 = suit1_Ip.get()
-    start.stop_Recording(IP_ADDRESS_1)
     brekel.click_Brekel()
+    button_stopRecordAll()
     
 def calibrate_1():
     IP_ADDRESS_1 = suit1_Ip.get()
-    start.calibrate_Suit(IP_ADDRESS_1)
+    start.calibrate_Suit(IP_ADDRESS=IP_ADDRESS_1)
     
 def calibrate_2():
     IP_ADDRESS_2 = suit2_Ip.get()
-    start.calibrate_Suit(IP_ADDRESS_2)
+    start.calibrate_Suit(IP_ADDRESS=IP_ADDRESS_2)
 
 def calibrate_3():
     IP_ADDRESS_3 = suit3_Ip.get()
-    start.calibrate_Suit(IP_ADDRESS_3)
+    start.calibrate_Suit(IP_ADDRESS=IP_ADDRESS_3)
 
 def calibrate_4():
     IP_ADDRESS_4 = suit4_Ip.get()
-    start.calibrate_Suit(IP_ADDRESS_4)
+    start.calibrate_Suit(IP_ADDRESS=IP_ADDRESS_4)
 
 def calibrate_5():
     IP_ADDRESS_5 = suit5_Ip.get()
-    start.calibrate_Suit(IP_ADDRESS_5)
+    start.calibrate_Suit(IP_ADDRESS=IP_ADDRESS_5)
 
 def calibrate_6():
     IP_ADDRESS_6 = suit6_Ip.get()
-    start.calibrate_Suit(IP_ADDRESS_6)
+    start.calibrate_Suit(IP_ADDRESS=IP_ADDRESS_6)
     
 def calibrate_All():
     calibrate_1()
@@ -172,54 +183,54 @@ suit1_Ip = customtkinter.CTkEntry(app, placeholder_text="0.0.0.0")
 suit1_Ip.place(relx=0.3, rely=0.2, anchor=tkinter.CENTER)
 suit1_Ip_label = customtkinter.CTkLabel(app, text="Suit 1 IP Address", fg_color="transparent")
 suit1_Ip_label.place(relx=0.15, rely=0.2, anchor=tkinter.CENTER)
-suit1_Name = customtkinter.CTkEntry(app, placeholder_text="File Name")
+suit1_Name = customtkinter.CTkEntry(app, placeholder_text="Character Name")
 suit1_Name.place(relx=0.9, rely=0.2, anchor=tkinter.CENTER)
-suit1_Name_label = customtkinter.CTkLabel(app, text="File Name", fg_color="transparent")
+suit1_Name_label = customtkinter.CTkLabel(app, text="Character Name", fg_color="transparent")
 suit1_Name_label.place(relx=0.75, rely=0.2, anchor=tkinter.CENTER)
 
 suit2_Ip = customtkinter.CTkEntry(app, placeholder_text="0.0.0.0")
 suit2_Ip.place(relx=0.3, rely=0.3, anchor=tkinter.CENTER)
 suit2_Ip_label = customtkinter.CTkLabel(app, text="Suit 2 IP Address", fg_color="transparent")
 suit2_Ip_label.place(relx=0.15, rely=0.3, anchor=tkinter.CENTER)
-suit2_Name = customtkinter.CTkEntry(app, placeholder_text="File Name")
+suit2_Name = customtkinter.CTkEntry(app, placeholder_text="Character Name")
 suit2_Name.place(relx=0.9, rely=0.3, anchor=tkinter.CENTER)
-suit2_Name_label = customtkinter.CTkLabel(app, text="File Name", fg_color="transparent")
+suit2_Name_label = customtkinter.CTkLabel(app, text="Character Name", fg_color="transparent")
 suit2_Name_label.place(relx=0.75, rely=0.3, anchor=tkinter.CENTER)
 
 suit3_Ip = customtkinter.CTkEntry(app, placeholder_text="0.0.0.0")
 suit3_Ip.place(relx=0.3, rely=0.4, anchor=tkinter.CENTER)
 suit3_Ip_label = customtkinter.CTkLabel(app, text="Suit 2 IP Address", fg_color="transparent")
 suit3_Ip_label.place(relx=0.15, rely=0.4, anchor=tkinter.CENTER)
-suit3_Name = customtkinter.CTkEntry(app, placeholder_text="File Name")
+suit3_Name = customtkinter.CTkEntry(app, placeholder_text="Character Name")
 suit3_Name.place(relx=0.9, rely=0.4, anchor=tkinter.CENTER)
-suit3_Name_label = customtkinter.CTkLabel(app, text="File Name", fg_color="transparent")
+suit3_Name_label = customtkinter.CTkLabel(app, text="Character Name", fg_color="transparent")
 suit3_Name_label.place(relx=0.75, rely=0.4, anchor=tkinter.CENTER)
 
 suit4_Ip = customtkinter.CTkEntry(app, placeholder_text="0.0.0.0")
 suit4_Ip.place(relx=0.3, rely=0.5, anchor=tkinter.CENTER)
 suit4_Ip_label = customtkinter.CTkLabel(app, text="Suit 4 IP Address", fg_color="transparent")
 suit4_Ip_label.place(relx=0.15, rely=0.5, anchor=tkinter.CENTER)
-suit4_Name = customtkinter.CTkEntry(app, placeholder_text="File Name")
+suit4_Name = customtkinter.CTkEntry(app, placeholder_text="Character Name")
 suit4_Name.place(relx=0.9, rely=0.5, anchor=tkinter.CENTER)
-suit4_Name_label = customtkinter.CTkLabel(app, text="File Name", fg_color="transparent")
+suit4_Name_label = customtkinter.CTkLabel(app, text="Character Name", fg_color="transparent")
 suit4_Name_label.place(relx=0.75, rely=0.5, anchor=tkinter.CENTER)
 
 suit5_Ip = customtkinter.CTkEntry(app, placeholder_text="0.0.0.0")
 suit5_Ip.place(relx=0.3, rely=0.6, anchor=tkinter.CENTER)
 suit5_Ip_label = customtkinter.CTkLabel(app, text="Suit 5 IP Address", fg_color="transparent")
 suit5_Ip_label.place(relx=0.15, rely=0.6, anchor=tkinter.CENTER)
-suit4_Name = customtkinter.CTkEntry(app, placeholder_text="File Name")
-suit4_Name.place(relx=0.9, rely=0.6, anchor=tkinter.CENTER)
-suit4_Name_label = customtkinter.CTkLabel(app, text="File Name", fg_color="transparent")
-suit4_Name_label.place(relx=0.75, rely=0.6, anchor=tkinter.CENTER)
+suit5_Name = customtkinter.CTkEntry(app, placeholder_text="Character Name")
+suit5_Name.place(relx=0.9, rely=0.6, anchor=tkinter.CENTER)
+suit5_Name_label = customtkinter.CTkLabel(app, text="Character Name", fg_color="transparent")
+suit5_Name_label.place(relx=0.75, rely=0.6, anchor=tkinter.CENTER)
 
 suit6_Ip = customtkinter.CTkEntry(app, placeholder_text="0.0.0.0")
 suit6_Ip.place(relx=0.3, rely=0.7, anchor=tkinter.CENTER)
 suit6_Ip_label = customtkinter.CTkLabel(app, text="Suit 6 IP Address", fg_color="transparent")
 suit6_Ip_label.place(relx=0.15, rely=0.7, anchor=tkinter.CENTER)
-suit6_Name = customtkinter.CTkEntry(app, placeholder_text="File Name")
+suit6_Name = customtkinter.CTkEntry(app, placeholder_text="Character Name")
 suit6_Name.place(relx=0.9, rely=0.7, anchor=tkinter.CENTER)
-suit6_Name_label = customtkinter.CTkLabel(app, text="File Name", fg_color="transparent")
+suit6_Name_label = customtkinter.CTkLabel(app, text="Character Name", fg_color="transparent")
 suit6_Name_label.place(relx=0.75, rely=0.7, anchor=tkinter.CENTER)
 
 api_Key = customtkinter.CTkEntry(app, placeholder_text="1234")
