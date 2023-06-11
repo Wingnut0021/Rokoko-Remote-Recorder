@@ -18,6 +18,8 @@ CLIP_NAME_4 = ""
 CLIP_NAME_5 = ""
 CLIP_NAME_6 = ""
 
+TAKE_NUMBER = 1
+
 def combobox_callback(choice):
     print("combobox dropdown clicked!", choice)
 
@@ -60,7 +62,7 @@ def button_startRecordAll():
     
     IP_ADDRESS_1 = suit1_Ip.get()
     CLIP_NAME_1 = suit1_Name.get()
-    CLIP_NAME_1 = CLIP_NAME_1 + NOW
+    CLIP_NAME_1 = CLIP_NAME_1 + TAKE_NUMBER + NOW
     start.start_Recording(IP_ADDRESS=IP_ADDRESS_1,CLIP_NAME=CLIP_NAME_1)
     IP_ADDRESS_2 = suit2_Ip.get()
     CLIP_NAME_2 = suit2_Name.get()
@@ -79,6 +81,7 @@ def button_startRecordAll():
     start.start_Recording(IP_ADDRESS=IP_ADDRESS_6,CLIP_NAME=CLIP_NAME_6)
 
 def button_stopRecordAll():
+    TAKE_NUMBER = TAKE_NUMBER + 1
     IP_ADDRESS_1 = suit1_Ip.get()
     start.stop_Recording(IP_ADDRESS=IP_ADDRESS_1,CLIP_NAME=CLIP_NAME_1)
     IP_ADDRESS_2 = suit2_Ip.get()
@@ -91,6 +94,8 @@ def button_stopRecordAll():
     start.stop_Recording(IP_ADDRESS=IP_ADDRESS_5,CLIP_NAME=CLIP_NAME_5)
     IP_ADDRESS_6 = suit6_Ip.get()
     start.stop_Recording(IP_ADDRESS=IP_ADDRESS_6,CLIP_NAME=CLIP_NAME_6)
+    
+    
 
 def button_startRecordBrekel():
     brekel.click_Brekel()
@@ -248,6 +253,10 @@ port = customtkinter.CTkEntry(app, placeholder_text="80")
 port.place(relx=0.3, rely=0.9, anchor=tkinter.CENTER)
 api_Key_label = customtkinter.CTkLabel(app, text="Network Port", fg_color="transparent")
 api_Key_label.place(relx=0.15, rely=0.9, anchor=tkinter.CENTER)
+
+
+take_number_label = customtkinter.CTkLabel(app, text=TAKE_NUMBER, fg_color="transparent")
+take_number_label.place(relx=0.1, rely=0.9, anchor=tkinter.CENTER)
 
 #IP_ADDRESS_1 = suit1_Ip.get()
 #IP_ADDRESS_2 = suit2_Ip.get()
