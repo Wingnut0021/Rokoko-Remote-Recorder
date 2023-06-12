@@ -2,6 +2,7 @@ import customtkinter
 import rokokoStartRecording as start
 import RecordBrekel as brekel
 from datetime import datetime
+import time
 
 customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
 customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
@@ -13,25 +14,6 @@ class App(customtkinter.CTk):
         IP_ADDRESS = ""
         CLIP_NAME = ""
         SCENE_NAME = ""
-
-        def get_ip1_input():
-            start.IP_ADDRESS = suit_Ip1.get()
-            print(start.IP_ADDRESS)
-
-        def get_api_input():
-            start.API_KEY = api_Key.get()
-            print(start.API_KEY)
-
-        def get_port_input():
-            start.PORT = port.get()
-            print(start.PORT)
-
-        def get_fps_input():
-            start.FRAME_RATE = frameRate.get()
-            print(start.FRAME_RATE)
-
-        def record_suit(IP_ADDRESS, CLIP_NAME):
-            start.start_Recording(IP_ADDRESS,CLIP_NAME)
 
         def button_startRecordAll():
             TAKE_NUMBER = take_number.get()
@@ -45,56 +27,68 @@ class App(customtkinter.CTk):
             suit6_ready = suit_checkbox6.get()
             brekel_ready = brekel_checkbox.get()
             self.status_textbox.insert("0.0", "Recording Started\n")
+            self.timer_label.configure(text=time.time)
             if brekel_ready == 1:
+                self.brekel_frame.configure(border_color="red", border_width=3)
                 brekel.click_Brekel()
             if suit1_ready == 1:
+                self.suit_frame1.configure(border_color="red", border_width=3)
                 IP_ADDRESS = suit_Ip1.get()
                 CLIP_NAME = suit_Name1.get()
-                if TAKE_NUMBER < 10:
+                if int(TAKE_NUMBER) < 10:
                     CLIP_NAME = CLIP_NAME + "_Take0" + str(TAKE_NUMBER) + "_" + NOW
                 else:
                     CLIP_NAME = CLIP_NAME + "_Take" + str(TAKE_NUMBER) + "_" + NOW
-                record_suit(IP_ADDRESS, CLIP_NAME)
+                start.start_Recording(IP_ADDRESS,CLIP_NAME)
             if suit2_ready == 1:
+                self.suit_frame2.configure(border_color="red", border_width=3)
                 IP_ADDRESS = suit_Ip2.get()
                 CLIP_NAME = suit_Name2.get()
-                if TAKE_NUMBER < 10:
+                if int(TAKE_NUMBER) < 10:
                     CLIP_NAME = CLIP_NAME + "_Take0" + str(TAKE_NUMBER) + "_" + NOW
                 else:
                     CLIP_NAME = CLIP_NAME + "_Take" + str(TAKE_NUMBER) + "_" + NOW
-                record_suit(IP_ADDRESS, CLIP_NAME)
+                start.start_Recording(IP_ADDRESS,CLIP_NAME)
             if suit3_ready == 1:
+                self.suit_frame3.configure(border_color="red", border_width=3)
                 IP_ADDRESS = suit_Ip3.get()
                 CLIP_NAME = suit_Name3.get()
-                if TAKE_NUMBER < 10:
+                if int(TAKE_NUMBER) < 10:
                     CLIP_NAME = CLIP_NAME + "_Take0" + str(TAKE_NUMBER) + "_" + NOW
                 else:
                     CLIP_NAME = CLIP_NAME + "_Take" + str(TAKE_NUMBER) + "_" + NOW
-                record_suit(IP_ADDRESS, CLIP_NAME)
+                start.start_Recording(IP_ADDRESS,CLIP_NAME)
             if suit4_ready == 1:
+                self.suit_frame4.configure(border_color="red", border_width=3)
                 IP_ADDRESS = suit_Ip4.get()
                 CLIP_NAME = suit_Name4.get()
-                if TAKE_NUMBER < 10:
+                if int(TAKE_NUMBER) < 10:
                     CLIP_NAME = CLIP_NAME + "_Take0" + str(TAKE_NUMBER) + "_" + NOW
                 else:
                     CLIP_NAME = CLIP_NAME + "_Take" + str(TAKE_NUMBER) + "_" + NOW
-                record_suit(IP_ADDRESS, CLIP_NAME)
+                start.start_Recording(IP_ADDRESS,CLIP_NAME)
             if suit5_ready == 1:
+                self.suit_frame5.configure(border_color="red", border_width=3)
                 IP_ADDRESS = suit_Ip5.get()
                 CLIP_NAME = suit_Name5.get()
-                if TAKE_NUMBER < 10:
+                if int(TAKE_NUMBER) < 10:
                     CLIP_NAME = CLIP_NAME + "_Take0" + str(TAKE_NUMBER) + "_" + NOW
                 else:
                     CLIP_NAME = CLIP_NAME + "_Take" + str(TAKE_NUMBER) + "_" + NOW
-                record_suit(IP_ADDRESS, CLIP_NAME)
+                start.start_Recording(IP_ADDRESS,CLIP_NAME)
             if suit6_ready == 1:
+                self.suit_frame6.configure(border_color="red", border_width=3)
                 IP_ADDRESS = suit_Ip6.get()
                 CLIP_NAME = suit_Name6.get()
-                if TAKE_NUMBER < 10:
+                if int(TAKE_NUMBER) < 10:
                     CLIP_NAME = CLIP_NAME + "_Take0" + str(TAKE_NUMBER) + "_" + NOW
                 else:
                     CLIP_NAME = CLIP_NAME + "_Take" + str(TAKE_NUMBER) + "_" + NOW
-                record_suit(IP_ADDRESS, CLIP_NAME)
+                start.start_Recording(IP_ADDRESS,CLIP_NAME)
+            else:
+                print("No devices selected")
+                self.timer_label.configure(text="00:00:00")
+                self.status_textbox.insert("0.0", "No devices Selected\n")
             return
         def button_stopRecordAll():
             TAKE_NUMBER = take_number.get()
@@ -104,8 +98,16 @@ class App(customtkinter.CTk):
             TAKE_NUMBER = int(TAKE_NUMBER) + 1
             TAKE_NUMBER = str(TAKE_NUMBER)
             take_number.insert(0, TAKE_NUMBER)
+            self.timer_label.configure(text="00:00:00")
             self.status_textbox.insert("0.0", "Recording Stopped\n")
             brekel_ready = brekel_checkbox.get()
+            self.suit_frame1.configure(border_color="red", border_width=0)
+            self.suit_frame2.configure(border_color="red", border_width=0)
+            self.suit_frame3.configure(border_color="red", border_width=0)
+            self.suit_frame4.configure(border_color="red", border_width=0)
+            self.suit_frame5.configure(border_color="red", border_width=0)
+            self.suit_frame6.configure(border_color="red", border_width=0)
+            self.brekel_frame.configure(border_color="red", border_width=0)
             if brekel_ready == 1:
                 brekel.click_Brekel()
             IP_ADDRESS = suit_Ip1.get()
@@ -220,7 +222,12 @@ class App(customtkinter.CTk):
         self.title_label = customtkinter.CTkLabel(self.title_frame, text="Rokoko Remote Multi Recorder", font=customtkinter.CTkFont(size=22, weight="bold"))
         self.title_label.grid(row=1, column=3, padx=10, pady=10)
         
-        self.suit_frame1 = customtkinter.CTkFrame(self, height=50, width=0, corner_radius=10)
+        self.timer_frame = customtkinter.CTkFrame(self, height=70, width=200, corner_radius=8, border_color="grey", border_width=3, fg_color="transparent", bg_color="transparent")
+        self.timer_frame.grid(row=1, column=5, rowspan=1, columnspan=1, sticky="nsew", padx=10)
+        self.timer_label = customtkinter.CTkLabel(self, text="00:00:00", font=customtkinter.CTkFont(size=22, weight="bold"))
+        self.timer_label.grid(row=1, column=5, padx=10, pady=10)
+        
+        self.suit_frame1 = customtkinter.CTkFrame(self, height=50, width=0, corner_radius=10)   
         self.suit_frame1.grid(row=3, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame1.grid_rowconfigure(1, weight=1)
         
