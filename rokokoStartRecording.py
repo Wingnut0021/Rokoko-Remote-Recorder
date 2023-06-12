@@ -1,12 +1,13 @@
 from pip._vendor import requests
 #import main
 
-IP_ADDRESS = '192.168.50.56' # Replace with actual ip address
+IP_ADDRESS = '' # Replace with actual ip address
 PORT = '14053' # Replace with actual port
 API_KEY = '1234' # Replace with actual api key
 CLIP_NAME = 'THISISACLIP' # Clip Name, Optional
 TIME_CODE = '00:01:05:00'
 FRAME_RATE = '60'
+SCENE_NAME = ""
 BACK_TO_LIVE = False # should we enter isolation mode after recording or continue in live mode
 SMARTSUIT_NAME = '' # Optional
 COUNTDOWN_DELAY = 5 # Optional
