@@ -98,6 +98,9 @@ class App(customtkinter.CTk):
             return
         def button_stopRecordAll():
             self.status_textbox.insert("0.0", "Recording Stopped\n")
+            brekel_ready = brekel_checkbox.get()
+            if brekel_ready == 1:
+                brekel.click_Brekel()
             IP_ADDRESS = suit_Ip1.get()
             start.stop_Recording(IP_ADDRESS)
             IP_ADDRESS = suit_Ip2.get()
