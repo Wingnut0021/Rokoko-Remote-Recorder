@@ -12,7 +12,6 @@ class App(customtkinter.CTk):
 
         IP_ADDRESS = ""
         CLIP_NAME = ""
-        TAKE_NUMBER = 1
         SCENE_NAME = ""
 
         def get_ip1_input():
@@ -35,6 +34,7 @@ class App(customtkinter.CTk):
             start.start_Recording(IP_ADDRESS,CLIP_NAME)
 
         def button_startRecordAll():
+            TAKE_NUMBER = take_number.get()
             now = datetime.now()
             NOW = now.strftime("%d_%m_%Y_%H_%M_%S")
             suit1_ready = suit_checkbox1.get()
@@ -97,6 +97,13 @@ class App(customtkinter.CTk):
                 record_suit(IP_ADDRESS, CLIP_NAME)
             return
         def button_stopRecordAll():
+            TAKE_NUMBER = take_number.get()
+            print(TAKE_NUMBER)
+            take_number.delete(first_index=0, last_index=1)
+            take_number.delete(first_index=0, last_index=1)
+            TAKE_NUMBER = int(TAKE_NUMBER) + 1
+            TAKE_NUMBER = str(TAKE_NUMBER)
+            take_number.insert(0, TAKE_NUMBER)
             self.status_textbox.insert("0.0", "Recording Stopped\n")
             brekel_ready = brekel_checkbox.get()
             if brekel_ready == 1:
@@ -186,6 +193,7 @@ class App(customtkinter.CTk):
         take_number_label.grid(row=4, column=0, padx=20, pady=10)
         take_number = customtkinter.CTkEntry(self.sidebar_frame, placeholder_text="")
         take_number.grid(row=5, column=0, rowspan=1, sticky="nsew", padx=20, pady=10)
+        take_number.insert(0, 1)
         
         frameRate_label = customtkinter.CTkLabel(self.sidebar_frame, text="Frame Rate", fg_color="transparent")
         frameRate_label.grid(row=6, column=0, padx=20, pady=10)
@@ -196,11 +204,13 @@ class App(customtkinter.CTk):
         api_Key_label.grid(row=8, column=0, padx=20, pady=10)
         api_Key = customtkinter.CTkEntry(self.sidebar_frame, placeholder_text="1234")
         api_Key.grid(row=9, column=0, padx=20, pady=20)
+        api_Key.insert(0, 1234)
 
         port_label = customtkinter.CTkLabel(self.sidebar_frame, text="Network Port", fg_color="transparent")
         port_label.grid(row=10, column=0, padx=20, pady=10)
         port = customtkinter.CTkEntry(self.sidebar_frame, placeholder_text="80")
         port.grid(row=11, column=0, padx=20, pady=20)
+        port.insert(0, 14053)
 
         # Configure suit frames
 
