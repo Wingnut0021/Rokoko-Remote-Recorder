@@ -1,4 +1,3 @@
-import tkinter
 import customtkinter
 import rokokoStartRecording as start
 import RecordBrekel as brekel
@@ -45,7 +44,6 @@ class App(customtkinter.CTk):
             suit5_ready = suit_checkbox5.get()
             suit6_ready = suit_checkbox6.get()
             brekel_ready = brekel_checkbox.get()
-            SCENE_NAME = scene_Name.get()
             self.status_textbox.insert("0.0", "Recording Started\n")
             if brekel_ready == 1:
                 brekel.click_Brekel()
@@ -209,39 +207,39 @@ class App(customtkinter.CTk):
         self.title_label = customtkinter.CTkLabel(self.title_frame, text="Rokoko Remote Multi Recorder", font=customtkinter.CTkFont(size=22, weight="bold"))
         self.title_label.grid(row=1, column=3, padx=10, pady=10)
         
-        self.suit_frame1 = customtkinter.CTkFrame(self, height=50, width=0, corner_radius=16)
+        self.suit_frame1 = customtkinter.CTkFrame(self, height=50, width=0, corner_radius=10)
         self.suit_frame1.grid(row=3, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame1.grid_rowconfigure(1, weight=1)
         
-        self.suit_frame2 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16)
+        self.suit_frame2 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
         self.suit_frame2.grid(row=5, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame2.grid_rowconfigure(1, weight=1)
         
-        self.suit_frame3 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16)
+        self.suit_frame3 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
         self.suit_frame3.grid(row=7, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame3.grid_rowconfigure(1, weight=1)
         
-        self.suit_frame4 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16)
+        self.suit_frame4 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
         self.suit_frame4.grid(row=9, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame4.grid_rowconfigure(1, weight=1)
         
-        self.suit_frame5 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16)
+        self.suit_frame5 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
         self.suit_frame5.grid(row=11, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame5.grid_rowconfigure(1, weight=1)
         
-        self.suit_frame6 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16)
+        self.suit_frame6 = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
         self.suit_frame6.grid(row=13, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame6.grid_rowconfigure(1, weight=1)
         
-        self.brekel_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16)
+        self.brekel_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
         self.brekel_frame.grid(row=15, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.brekel_frame.grid_rowconfigure(1, weight=1)
         
-        self.record_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16, fg_color="transparent", bg_color="transparent")
+        self.record_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10, fg_color="transparent", bg_color="transparent")
         self.record_frame.grid(row=17, column=2, rowspan=1, columnspan=2, sticky="nsew", padx=50)
         self.record_frame.grid_rowconfigure(1, weight=1)
         
-        self.text_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=16, fg_color="transparent", bg_color="transparent")
+        self.text_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10, fg_color="transparent", bg_color="transparent")
         self.text_frame.grid(row=19, column=2, rowspan=1, columnspan=2, sticky="nsew", padx=50)
         self.text_frame.grid_rowconfigure(1, weight=1)
 
@@ -250,7 +248,7 @@ class App(customtkinter.CTk):
         buttonStopAll = customtkinter.CTkButton(self.record_frame, text="Stop Recording", command=button_stopRecordAll)
         buttonStopAll.grid(row=0, column=10, rowspan=1, sticky="nsew", padx=5, pady=10)
         buttonCalibrateAll = customtkinter.CTkButton(self.record_frame, text="Calibrate All", command=calibrate)
-        buttonCalibrateAll.grid(row=0, column=13, rowspan=1, sticky="nsew", padx=5, pady=10)
+        buttonCalibrateAll.grid(row=0, column=13, rowspan=1, sticky="nsew", padx=125, pady=10)
 
         suit_checkbox1 = customtkinter.CTkCheckBox(self.suit_frame1, text="Suit 1")
         suit_checkbox1.grid(row=0, column=0, rowspan=1, sticky="n", padx=10, pady=10)
