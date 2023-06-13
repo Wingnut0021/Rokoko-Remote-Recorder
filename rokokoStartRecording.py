@@ -58,8 +58,8 @@ def calibrate_Suit(IP_ADDRESS):
             'countdown_delay': COUNTDOWN_DELAY,
             'skip_suit' : False,
             'skip_gloves' : False,
-            'use_custom_pose' : False,
-            'pose' : 'straight-arms-down' # tpose, straight-arms-down, straight-arms-forward
+            'use_custom_pose' : True,
+            'pose' : 'tpose' # tpose, straight-arms-down, straight-arms-forward
             }
         )
     except Exception as e:
