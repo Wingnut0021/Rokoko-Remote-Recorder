@@ -3,6 +3,7 @@ import rokokoStartRecording as start
 import RecordBrekel as brekel
 from datetime import datetime
 import time
+from PIL import Image
 
 customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
 customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
@@ -175,6 +176,30 @@ class App(customtkinter.CTk):
             IP_ADDRESS = suit_Ip6.get()
             start.calibrate_Suit(IP_ADDRESS)
 
+        def attachTracker():
+            IP_ADDRESS = suit_Ip1.get()
+            start.attach_tracker(IP_ADDRESS)
+
+        def getInfo1():
+            IP_ADDRESS = suit_Ip1.get()
+            start.device_info(IP_ADDRESS)
+            self.status_textbox.insert("0.0", "Requires upgrade in subscription\n")
+        def getInfo2():
+            IP_ADDRESS = suit_Ip2.get()
+            start.device_info(IP_ADDRESS)
+        def getInfo3():
+            IP_ADDRESS = suit_Ip3.get()
+            start.device_info(IP_ADDRESS)
+        def getInfo4():
+            IP_ADDRESS = suit_Ip4.get()
+            start.device_info(IP_ADDRESS)
+        def getInfo5():
+            IP_ADDRESS = suit_Ip5.get()
+            start.device_info(IP_ADDRESS)
+        def getInfo6():
+            IP_ADDRESS = suit_Ip6.get()
+            start.device_info(IP_ADDRESS)
+        
         # Configure Window
         self.title("Rokoko Multi Remote Recorder")
         self.geometry("1100x800")
@@ -282,17 +307,23 @@ class App(customtkinter.CTk):
         suit_Ip1.grid(row=0, column=1, rowspan=1, sticky="n", padx=5, pady=10)
         suit_Name1 = customtkinter.CTkEntry(self.suit_frame1, placeholder_text="Character Name")
         suit_Name1.grid(row=0, column=2, rowspan=1, sticky="n", padx=5, pady=10)
-        buttonCalibrate1 = customtkinter.CTkButton(self.suit_frame1, text="Calibrate", command=calibrate1)
+        buttonCalibrate1 = customtkinter.CTkButton(self.suit_frame1, text="Calibrate", command=calibrate1, width=50)
         buttonCalibrate1.grid(row=0, column=3, rowspan=1, sticky="n", padx=5, pady=10)
-
+        buttonGetInfo1 = customtkinter.CTkButton(self.suit_frame1, text="Info", command=getInfo1, width=50)
+        buttonGetInfo1.grid(row=0, column=4, padx=5, pady=10, sticky="n")
+        #calibratePose1 = customtkinter.CTkComboBox(self.suit_frame1, values=["straight-arms-down", "straight-arms-forward", "tpose"])
+        #calibratePose1.grid(row=0, column=4, rowspan=1, sticky="n", padx=5, pady=10)
+        
         suit_checkbox2 = customtkinter.CTkCheckBox(self.suit_frame2, text="Suit 2")
         suit_checkbox2.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=10, pady=10)
         suit_Ip2 = customtkinter.CTkEntry(self.suit_frame2, placeholder_text="IP Address")
         suit_Ip2.grid(row=0, column=1, rowspan=1, sticky="nsew", padx=5, pady=10)
         suit_Name2 = customtkinter.CTkEntry(self.suit_frame2, placeholder_text="Character Name")
         suit_Name2.grid(row=0, column=2, rowspan=1, sticky="nsew", padx=5, pady=10)
-        buttonCalibrate2 = customtkinter.CTkButton(self.suit_frame2, text="Calibrate", command=calibrate2)
+        buttonCalibrate2 = customtkinter.CTkButton(self.suit_frame2, text="Calibrate", command=calibrate2, width=50)
         buttonCalibrate2.grid(row=0, column=3, rowspan=1, sticky="nsew", padx=5, pady=10)
+        buttonGetInfo2 = customtkinter.CTkButton(self.suit_frame2, text="Info", command=getInfo2, width=50)
+        buttonGetInfo2.grid(row=0, column=4, padx=5, pady=10, sticky="n")
 
         suit_checkbox3 = customtkinter.CTkCheckBox(self.suit_frame3, text="Suit 3")
         suit_checkbox3.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=10, pady=10)
@@ -300,8 +331,10 @@ class App(customtkinter.CTk):
         suit_Ip3.grid(row=0, column=1, rowspan=1, sticky="nsew", padx=5, pady=10)
         suit_Name3 = customtkinter.CTkEntry(self.suit_frame3, placeholder_text="Character Name")
         suit_Name3.grid(row=0, column=2, rowspan=1, sticky="nsew", padx=5, pady=10)
-        buttonCalibrate3 = customtkinter.CTkButton(self.suit_frame3, text="Calibrate", command=calibrate3)
+        buttonCalibrate3 = customtkinter.CTkButton(self.suit_frame3, text="Calibrate", command=calibrate3, width=50)
         buttonCalibrate3.grid(row=0, column=3, rowspan=1, sticky="nsew", padx=5, pady=10)
+        buttonGetInfo3 = customtkinter.CTkButton(self.suit_frame3, text="Info", command=getInfo3, width=50)
+        buttonGetInfo3.grid(row=0, column=4, padx=5, pady=10, sticky="n")
 
         suit_checkbox4 = customtkinter.CTkCheckBox(self.suit_frame4, text="Suit 4")
         suit_checkbox4.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=10, pady=10)
@@ -309,8 +342,10 @@ class App(customtkinter.CTk):
         suit_Ip4.grid(row=0, column=1, rowspan=1, sticky="nsew", padx=5, pady=10)
         suit_Name4 = customtkinter.CTkEntry(self.suit_frame4, placeholder_text="Character Name")
         suit_Name4.grid(row=0, column=2, rowspan=1, sticky="nsew", padx=5, pady=10)
-        buttonCalibrate4 = customtkinter.CTkButton(self.suit_frame4, text="Calibrate", command=calibrate4)
+        buttonCalibrate4 = customtkinter.CTkButton(self.suit_frame4, text="Calibrate", command=calibrate4, width=50)
         buttonCalibrate4.grid(row=0, column=3, rowspan=1, sticky="nsew", padx=5, pady=10)
+        buttonGetInfo4 = customtkinter.CTkButton(self.suit_frame4, text="Info", command=getInfo4, width=50)
+        buttonGetInfo4.grid(row=0, column=4, padx=5, pady=10, sticky="n")
 
         suit_checkbox5 = customtkinter.CTkCheckBox(self.suit_frame5, text="Suit 5")
         suit_checkbox5.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=10, pady=10)
@@ -318,8 +353,10 @@ class App(customtkinter.CTk):
         suit_Ip5.grid(row=0, column=1, rowspan=1, sticky="nsew", padx=5, pady=10)
         suit_Name5 = customtkinter.CTkEntry(self.suit_frame5, placeholder_text="Character Name")
         suit_Name5.grid(row=0, column=2, rowspan=1, sticky="nsew", padx=5, pady=10)
-        buttonCalibrate5 = customtkinter.CTkButton(self.suit_frame5, text="Calibrate", command=calibrate5)
+        buttonCalibrate5 = customtkinter.CTkButton(self.suit_frame5, text="Calibrate", command=calibrate5, width=50)
         buttonCalibrate5.grid(row=0, column=3, rowspan=1, sticky="nsew", padx=5, pady=10)
+        buttonGetInfo5 = customtkinter.CTkButton(self.suit_frame5, text="Info", command=getInfo5, width=50)
+        buttonGetInfo5.grid(row=0, column=4, padx=5, pady=10, sticky="n")
 
         suit_checkbox6 = customtkinter.CTkCheckBox(self.suit_frame6, text="Suit 6")
         suit_checkbox6.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=10, pady=10)
@@ -327,8 +364,10 @@ class App(customtkinter.CTk):
         suit_Ip6.grid(row=0, column=1, rowspan=1, sticky="nsew", padx=5, pady=10)
         suit_Name6 = customtkinter.CTkEntry(self.suit_frame6, placeholder_text="Character Name")
         suit_Name6.grid(row=0, column=2, rowspan=1, sticky="nsew", padx=5, pady=10)
-        buttonCalibrate6 = customtkinter.CTkButton(self.suit_frame6, text="Calibrate", command=calibrate6)
+        buttonCalibrate6 = customtkinter.CTkButton(self.suit_frame6, text="Calibrate", command=calibrate6, width=50)
         buttonCalibrate6.grid(row=0, column=3, rowspan=1, sticky="nsew", padx=5, pady=10)
+        buttonGetInfo6 = customtkinter.CTkButton(self.suit_frame6, text="Info", command=getInfo6, width=50)
+        buttonGetInfo6.grid(row=0, column=4, padx=5, pady=10, sticky="n")
 
         brekel_checkbox = customtkinter.CTkCheckBox(self.brekel_frame, text="Brekel")
         brekel_checkbox.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=10, pady=10)
@@ -340,8 +379,15 @@ class App(customtkinter.CTk):
 
         self.status_textbox = customtkinter.CTkTextbox(self.text_frame, height=100, width=700)
         self.status_textbox.grid(row=0, column=2, padx=(0, 0), pady=(0, 0), sticky="nsew")
+        
+        
+        suitImage = customtkinter.CTkImage(self.suit_frame1, dark_image=Image.open("human.svg"), size=(30, 30))
+        suitImage.grid(row=0, column=2, padx=(0, 0), pady=(0, 0), sticky="nsew")
+        #buttonAttachTracker = customtkinter.CTkButton(self.suit_frame6, text="Attach Tracker", command=attachTracker)
+        #buttonAttachTracker.grid(row=0, column=4, padx=(0, 0), pady=(0, 0), sticky="nsew")
+        
+        
 
-        self.bind('<Return>', lambda event:button_startRecordAll())
 
 if __name__ == "__main__":
     app = App()
