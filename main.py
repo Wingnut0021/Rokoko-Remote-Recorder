@@ -24,9 +24,9 @@ class App(customtkinter.CTk):
             NOW = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
             self.status_textbox.insert("0.0", "Recording Started\n")
             self.timer_label.configure(text=time.time)
-            if brekel_checkbox.get() == 1:
-                self.brekel_frame.configure(border_color="red", border_width=3)
-                brekel.click_Brekel()
+            #if brekel_checkbox.get() == 1:
+            #    self.brekel_frame.configure(border_color="red", border_width=3)
+            #    brekel.click_Brekel()
             if suit_checkbox1.get() == 1:
                 self.suit_frame1.configure(border_color="red", border_width=3)
                 IP_ADDRESS = suit_Ip1.get()
@@ -72,7 +72,7 @@ class App(customtkinter.CTk):
             take_number.insert(0, TAKE_NUMBER)
             self.timer_label.configure(text="00:00:00")
             self.status_textbox.insert("0.0", "Recording Stopped\n")
-            brekel_ready = brekel_checkbox.get()
+            #brekel_ready = brekel_checkbox.get()
             self.suit_frame1.configure(border_color="red", border_width=0)
             self.suit_frame2.configure(border_color="red", border_width=0)
             self.suit_frame3.configure(border_color="red", border_width=0)
@@ -80,8 +80,8 @@ class App(customtkinter.CTk):
             self.suit_frame5.configure(border_color="red", border_width=0)
             self.suit_frame6.configure(border_color="red", border_width=0)
             self.brekel_frame.configure(border_color="red", border_width=0)
-            if brekel_ready == 1:
-                brekel.click_Brekel()
+            #if brekel_ready == 1:
+            #    brekel.click_Brekel()
             IP_ADDRESS = suit_Ip1.get()
             CLIP_NAME = suit_Name1.get()
             start.stop_Recording(IP_ADDRESS, CLIP_NAME)
