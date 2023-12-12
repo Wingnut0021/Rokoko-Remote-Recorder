@@ -259,9 +259,9 @@ class App(customtkinter.CTk):
         self.suit_frame6.grid(row=13, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
         self.suit_frame6.grid_rowconfigure(1, weight=1)
         
-        self.brekel_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
-        self.brekel_frame.grid(row=15, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
-        self.brekel_frame.grid_rowconfigure(1, weight=1)
+        #self.brekel_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10)
+        #self.brekel_frame.grid(row=15, column=2, rowspan=1, columnspan=1, sticky="nsew", padx=50)
+        #self.brekel_frame.grid_rowconfigure(1, weight=1)
         
         self.record_frame = customtkinter.CTkFrame(self, height=0, width=0, corner_radius=10, fg_color="transparent", bg_color="transparent")
         self.record_frame.grid(row=17, column=2, rowspan=1, columnspan=2, sticky="nsew", padx=50)
@@ -346,13 +346,13 @@ class App(customtkinter.CTk):
         buttonGetInfo6 = customtkinter.CTkButton(self.suit_frame6, text="Info", command=getInfo6, width=50)
         buttonGetInfo6.grid(row=0, column=4, padx=5, pady=(15, 0), sticky="n")
 
-        brekel_checkbox = customtkinter.CTkCheckBox(self.brekel_frame, text="Brekel")
-        brekel_checkbox.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=(10, 0), pady=(15, 0))
-        brekel_Ip = customtkinter.CTkEntry(self.brekel_frame, placeholder_text="127.0.0.1")
-        brekel_Ip.grid(row=0, column=1, rowspan=1, sticky="nsew", padx=(0, 0), pady=(15, 0))
-        brekel_Ip.configure(state="disabled")
-        brekel_label = customtkinter.CTkLabel(self.brekel_frame, text="Not currently implemented with API, Requires AutoHotKey", fg_color="transparent", bg_color="transparent")
-        brekel_label.grid(row=0, column=2, rowspan=1, sticky="nsew", padx=5, pady=(15, 0))
+        #brekel_checkbox = customtkinter.CTkCheckBox(self.brekel_frame, text="Brekel")
+        #brekel_checkbox.grid(row=0, column=0, rowspan=1, sticky="nsew", padx=(10, 0), pady=(15, 0))
+        #brekel_Ip = customtkinter.CTkEntry(self.brekel_frame, placeholder_text="127.0.0.1")
+        #brekel_Ip.grid(row=0, column=1, rowspan=1, sticky="nsew", padx=(0, 0), pady=(15, 0))
+        #brekel_Ip.configure(state="disabled")
+        #brekel_label = customtkinter.CTkLabel(self.brekel_frame, text="Not currently implemented with API, Requires AutoHotKey", fg_color="transparent", bg_color="transparent")
+        #brekel_label.grid(row=0, column=2, rowspan=1, sticky="nsew", padx=5, pady=(15, 0))
 
         self.status_textbox = customtkinter.CTkTextbox(self.text_frame, height=100, width=700)
         self.status_textbox.grid(row=0, column=2, padx=(0, 0), pady=(0, 0), sticky="nsew")
